@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>لوحة تحكم الحجز</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+  <main class="admin-page">
+
+    <header class="admin-header">
+      <div>
+        <h1>لوحة تحكم الحجز</h1>
+        <p>مراجعة ليلة الامتحان - فيزياء - المهندس إبراهيم الشامي</p>
+      </div>
+
+      <div class="admin-actions">
+        <button class="small-btn" onclick="loadAdminData()">تحديث البيانات</button>
+        <button class="small-btn secondary" onclick="exportBookingsCSV()">تصدير Excel</button>
+      </div>
+    </header>
+
+    <section class="admin-grid">
+
+      <div class="admin-card">
+        <h2>إدارة المجموعات والحدود</h2>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>المنطقة</th>
+                <th>المجموعة</th>
+                <th>الموعد</th>
+                <th>الحد الإجمالي</th>
+                <th>حد الذكور</th>
+                <th>حد الإناث</th>
+                <th>المسجلين</th>
+                <th>الحالة</th>
+                <th>حفظ</th>
+              </tr>
+            </thead>
+
+            <tbody id="groupsTable"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <h2>الحجوزات</h2>
+
+        <div class="form-group">
+          <label for="filterArea">فلترة حسب المنطقة</label>
+          <select id="filterArea">
+            <option value="">كل المناطق</option>
+            <option value="أم خنان">أم خنان</option>
+            <option value="اسطنها">اسطنها</option>
+            <option value="أشليم">أشليم</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="filterGender">فلترة حسب النوع</label>
+          <select id="filterGender">
+            <option value="">الكل</option>
+            <option value="ذكر">ذكر</option>
+            <option value="أنثى">أنثى</option>
+          </select>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>الاسم</th>
+                <th>رقم الهاتف</th>
+                <th>النوع</th>
+                <th>المنطقة</th>
+                <th>المجموعة</th>
+                <th>الموعد</th>
+                <th>وقت التسجيل</th>
+              </tr>
+            </thead>
+
+            <tbody id="bookingsTable"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
