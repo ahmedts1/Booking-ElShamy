@@ -172,7 +172,7 @@ function renderGroups(gender) {
       const totalRemaining = group.total_limit - group.total_count;
       const finalRemaining = Math.min(genderRemaining, totalRemaining);
 
-      remainingText = `المتاح لـ ${gender}: ${finalRemaining}`;
+    
     }
 
     const groupElement = document.createElement("div");
@@ -182,7 +182,7 @@ function renderGroups(gender) {
       <div class="group-info">
         <strong>${escapeHtml(group.group_name)} - الساعة ${escapeHtml(group.time_label)}</strong>
         <span>${escapeHtml(remainingText)}</span>
-        <span>الإجمالي: ${group.total_count} / ${group.total_limit}</span>
+        
       </div>
 
       <div class="status ${isFullForStudent ? "full" : "available"}">
