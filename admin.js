@@ -7,7 +7,6 @@ const supabaseClient = supabase.createClient(
   SUPABASE_URL,
   SUPABASE_ANON_KEY
 );
-const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 const tableBody = document.getElementById("registrationsTable");
 const stats = document.getElementById("stats");
