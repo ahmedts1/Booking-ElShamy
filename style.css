@@ -118,3 +118,18 @@ input:focus, select:focus {
   .form-card { padding: 20px 16px; border-radius: 18px; }
   .choice-grid { gap: 8px; }
 }
+.form-image-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.form-image {
+  width: 100%;
+  max-width: 350px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
