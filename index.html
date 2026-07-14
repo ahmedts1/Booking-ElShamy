@@ -1,89 +1,78 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>حجز مراجعة الفيزياء | إبراهيم الشامي</title>
-
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="تسجيل طلاب الصف الثاني الثانوي">
+  <title>تسجيل الصف الثاني الثانوي</title>
+  <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
-
 <body>
   <main class="page">
-
     <section class="hero">
-      <div class="tag">⚡ مراجعة ليلة الامتحان</div>
-      <h1>احجز موعدك في مراجعة الفيزياء</h1>
-      <p>مع المهندس إبراهيم الشامي</p>
+      <span class="tag">تسجيل الطلاب</span>
+      <h1>تسجيل الصف الثاني الثانوي</h1>
+      <p>اكتب بياناتك بشكل صحيح ثم اضغط على زر التسجيل.</p>
     </section>
 
-    <section class="booking-card">
-      <form id="bookingForm">
-
+    <section class="form-card">
+      <form id="registrationForm" novalidate>
         <div class="form-group">
-          <label for="studentName">اسم الطالب</label>
-          <input 
-            type="text" 
-            id="studentName" 
-            placeholder="اكتب اسمك بالكامل" 
-            required 
-          />
+          <label for="studentName">الاسم بالكامل</label>
+          <input id="studentName" type="text" placeholder="اكتب اسم الطالب بالكامل" minlength="3" maxlength="100" autocomplete="name" required>
         </div>
 
         <div class="form-group">
           <label for="phone">رقم الهاتف</label>
-          <input 
-            type="tel" 
-            id="phone" 
-            placeholder="مثال: 01012345678" 
-            required 
-          />
+          <input id="phone" type="tel" inputmode="numeric" placeholder="مثال: 01012345678" maxlength="11" autocomplete="tel" required>
         </div>
 
         <div class="form-group">
-          <label>النوع </label>
-
-          <div class="gender-options">
-            <label class="radio-card">
-              <input type="radio" name="gender" value="ذكر" required />
-              <span>ذكر</span>
-            </label>
-
-            <label class="radio-card">
-              <input type="radio" name="gender" value="أنثى" required />
-              <span>أنثى</span>
-            </label>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="area">اختر المنطقة</label>
+          <label for="area">البلد</label>
           <select id="area" required>
-            <option value="">اختر المنطقة</option>
-            <option value="أم خنان">أم خنان</option>
+            <option value="">اختر البلد</option>
             <option value="اسطنها">اسطنها</option>
+            <option value="بطا">بطا</option>
             <option value="أشليم">أشليم</option>
+            <option value="أم خنان">أم خنان</option>
+            <option value="قبالة">قبالة</option>
           </select>
         </div>
 
-        <div id="groupsContainer" class="groups-container hidden">
-          <h3>اختر المجموعة المناسبة</h3>
-          <div id="groupsList" class="groups-list"></div>
-        </div>
+        <fieldset class="form-group">
+          <legend>النوع</legend>
+          <div class="choice-grid">
+            <label class="choice-card">
+              <input type="radio" name="gender" value="ولد" required>
+              <span>ولد</span>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="gender" value="بنت" required>
+              <span>بنت</span>
+            </label>
+          </div>
+        </fieldset>
 
-        <button type="submit" class="main-btn">
-          تأكيد الحجز
-        </button>
+        <fieldset class="form-group">
+          <legend>نظام الدراسة</legend>
+          <div class="choice-grid">
+            <label class="choice-card">
+              <input type="radio" name="studySystem" value="ثانوية عامة" required>
+              <span>ثانوية عامة</span>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="studySystem" value="بكالوريا" required>
+              <span>بكالوريا</span>
+            </label>
+          </div>
+        </fieldset>
 
-        <div id="message" class="message hidden"></div>
-
+        <button id="submitButton" class="main-btn" type="submit">تسجيل البيانات</button>
+        <div id="message" class="message hidden" role="alert" aria-live="polite"></div>
       </form>
     </section>
-
   </main>
-
   <script src="app.js"></script>
 </body>
 </html>
